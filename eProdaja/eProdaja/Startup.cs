@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using eProdaja.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +35,16 @@ namespace eProdaja
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            //var connection = @"Server=db;Database=eProdaja;username=sa;password=qweasd;ConnectRetryCount=0";
+            //services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(connection));
+
+            var connection = "Data Source=.;Initial Catalog=eProdaja; Integrated Security = true";
+            services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IKorisniciService, KorisniciService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +63,7 @@ namespace eProdaja
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = "";
             });
 
             app.UseHttpsRedirection();
