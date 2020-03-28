@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using eProdaja.Database;
 using eProdaja.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace eProdaja.Mappers
         {
             CreateMap<Korisnici, Model.Korisnici>(); // means you want to map from User to UserDTO
             CreateMap<KorisniciInsertRequest, Korisnici>(); // means you want to map from User to UserDTO
+            CreateMap<KorisniciUpdateRequest, Korisnici>(); // means you want to map from User to UserDTO
         }
     }
 }

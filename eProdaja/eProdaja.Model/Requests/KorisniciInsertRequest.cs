@@ -1,19 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace eProdaja.Model.Requests
 {
     public class KorisniciInsertRequest
     {
-        public int KorisnikId { get; set; }
+        [Required(AllowEmptyStrings = false)]
         public string Ime { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
         public string Prezime { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [EmailAddress()]
         public string Email { get; set; }
+        
+
         public string Telefon { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(4)]
         public string KorisnickoIme { get; set; }
-        public string LozinkaHash { get; set; }
-        public string LozinkaSalt { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(4)]
+        public string Password { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(4)]
+        public string PasswordPotvrda { get; set; }
         public bool? Status { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace eProdaja
+namespace eProdaja.Database
 {
     public partial class Skladista
     {

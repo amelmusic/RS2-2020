@@ -1,4 +1,5 @@
-﻿using eProdaja.Model.Requests;
+﻿using eProdaja.Database;
+using eProdaja.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace eProdaja.Services
     {
         IList<Model.Korisnici> GetAll();
 
-        Korisnici GetById(int id);
+        Model.Korisnici GetById(int id);
 
         Model.Korisnici Insert(KorisniciInsertRequest korisnici);
 
-        Korisnici Update(int id, Korisnici korisnici);
+        Model.Korisnici Update(int id, KorisniciUpdateRequest korisnici);
+
+        Model.Korisnici Login(KorisniciLoginRequest request);
     }
 }
