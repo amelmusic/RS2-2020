@@ -19,6 +19,10 @@ namespace eProdaja.Mappers
 
             CreateMap<Uloge, Model.Uloge>();
             CreateMap<VrsteProizvoda, Model.VrsteProizvoda>();
+            CreateMap<JediniceMjere, Model.JediniceMjere>();
+            CreateMap<Proizvodi, Model.Proizvodi>();
+            CreateMap<ProizvodiInsertRequest, Proizvodi>();
+            CreateMap<ProizvodUpdateRequest, Proizvodi>();
         }
     }
 }

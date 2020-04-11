@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public interface IUlogeService
+    public interface IUlogeService : IService<Model.Uloge, object>
     {
-        IList<Model.Uloge> GetAll(object search = null);
-
-        Model.Uloge GetById(int id);
     }
 }

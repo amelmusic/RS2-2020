@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using eProdaja.Database;
 using eProdaja.Filters;
+using eProdaja.Model.Requests;
 using eProdaja.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -51,6 +52,10 @@ namespace eProdaja
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IUlogeService, UlogeService>();
             services.AddScoped<IVrsteProizvodaService, VrsteProizvodaService>();
+
+            services.AddScoped<IService<Model.JediniceMjere, object>, BaseService<Model.JediniceMjere, object, Database.JediniceMjere>>();
+            services.AddScoped<ICRUDService<Model.Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest>
+                , BaseCRUDService<Model.Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest, Proizvodi>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

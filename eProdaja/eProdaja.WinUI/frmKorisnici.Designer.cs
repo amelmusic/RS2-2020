@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrezime = new System.Windows.Forms.TextBox();
+            this.btnNoviKorisnik = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +83,9 @@
             // 
             // btnPrikazi
             // 
-            this.btnPrikazi.Location = new System.Drawing.Point(635, 31);
+            this.btnPrikazi.Location = new System.Drawing.Point(560, 30);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(153, 23);
+            this.btnPrikazi.Size = new System.Drawing.Size(102, 23);
             this.btnPrikazi.TabIndex = 1;
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
@@ -122,11 +123,22 @@
             this.txtPrezime.Size = new System.Drawing.Size(255, 22);
             this.txtPrezime.TabIndex = 4;
             // 
+            // btnNoviKorisnik
+            // 
+            this.btnNoviKorisnik.Location = new System.Drawing.Point(668, 31);
+            this.btnNoviKorisnik.Name = "btnNoviKorisnik";
+            this.btnNoviKorisnik.Size = new System.Drawing.Size(120, 23);
+            this.btnNoviKorisnik.TabIndex = 6;
+            this.btnNoviKorisnik.Text = "Novi korisnik";
+            this.btnNoviKorisnik.UseVisualStyleBackColor = true;
+            this.btnNoviKorisnik.Click += new System.EventHandler(this.btnNoviKorisnik_Click);
+            // 
             // frmKorisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNoviKorisnik);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.label1);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.Button btnNoviKorisnik;
     }
 }

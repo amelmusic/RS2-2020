@@ -20,7 +20,11 @@ namespace eProdaja.WinUI
         }
         public async Task<T> GetAll<T>(object searchRequest = null)
         {
-            var query = await searchRequest?.ToQueryString();
+            var query = "";
+            if (searchRequest != null)
+            {
+                query = await searchRequest?.ToQueryString();
+            }
 
             var list = await $"{endpoint}{_resource}?{query}"
                .GetJsonAsync<T>();

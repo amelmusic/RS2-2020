@@ -45,5 +45,11 @@ namespace eProdaja.WinUI
             frmKorisniciDetails frm = new frmKorisniciDetails(item as Korisnici);
             frm.ShowDialog();
         }
+
+        private void btnNoviKorisnik_Click(object sender, EventArgs e)
+        {
+            frmKorisniciDetails frm = new frmKorisniciDetails();
+            frm.ShowDialog();
+        }
     }
 }

@@ -29,5 +29,7 @@ namespace eProdaja.Model.Requests
         [MinLength(4)]
         public string PasswordPotvrda { get; set; }
         public bool? Status { get; set; }
+
+        public List<int> Uloge { get; set; } = new List<int>();
     }
 }

@@ -8,26 +8,10 @@ using System.Threading.Tasks;
 
 namespace eProdaja.Services
 {
-    public class UlogeService : IUlogeService
+    public class UlogeService : BaseService<Model.Uloge, object, Database.Uloge>, IUlogeService
     {
-        protected eProdajaContext _context;
-        protected IMapper _mapper;
-        public UlogeService(eProdajaContext context, IMapper mapper)
+        public UlogeService(eProdajaContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-
-        public IList<Model.Uloge> GetAll(object search = null)
-        {
-            var result = _context.Uloge.ToList();
-            return _mapper.Map<IList<Model.Uloge>>(result);
-        }
-
-        public Model.Uloge GetById(int id)
-        {
-            var entity = _context.Uloge.Find(id);
-            return _mapper.Map<Model.Uloge>(entity);
         }
     }
 }
