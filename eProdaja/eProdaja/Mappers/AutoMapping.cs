@@ -4,6 +4,7 @@ using eProdaja.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace eProdaja.Mappers
@@ -15,6 +16,9 @@ namespace eProdaja.Mappers
             CreateMap<Korisnici, Model.Korisnici>(); // means you want to map from User to UserDTO
             CreateMap<KorisniciInsertRequest, Korisnici>(); // means you want to map from User to UserDTO
             CreateMap<KorisniciUpdateRequest, Korisnici>(); // means you want to map from User to UserDTO
+
+            CreateMap<Uloge, Model.Uloge>();
+            CreateMap<VrsteProizvoda, Model.VrsteProizvoda>();
         }
     }
 }
