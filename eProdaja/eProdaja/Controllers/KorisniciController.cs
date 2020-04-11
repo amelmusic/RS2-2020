@@ -21,9 +21,9 @@ namespace eProdaja.Controllers
         }
 
         [HttpGet]
-        public IList<Model.Korisnici> GetAll()
+        public IList<Model.Korisnici> GetAll([FromQuery]KorisniciSearchRequest request)
         {
-            return _service.GetAll();
+            return _service.GetAll(request);
         }
 
         [HttpGet("{id}")]

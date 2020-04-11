@@ -22,9 +22,21 @@ namespace eProdaja.Services
             _mapper = mapper;
         }
 
-        public IList<Model.Korisnici> GetAll()
+        public IList<Model.Korisnici> GetAll(KorisniciSearchRequest search)
         {
-            var entities = _context.Korisnici.ToList();
+            var query = _context.Korisnici.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search?.Ime))
+            {
+                query = query.Where(x => x.Ime == search.Ime);
+            }
+
+            if (!string.IsNullOrWhiteSpace(search?.PrezimeFilter))
+            {
+                query = query.Where(x => x.Prezime == search.PrezimeFilter);
+            }
+
+            var entities = query.ToList();
             //List<Model.Korisnici> result = new List<Model.Korisnici>();
             //entities
             //    .Where(x  => !string.IsNullOrEmpty(x.Email)).ToList()
