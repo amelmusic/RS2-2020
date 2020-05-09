@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eProdaja.WinUI.Proizvodi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -107,6 +108,14 @@ namespace eProdaja.WinUI
         private void pretragaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKorisnici frm = new frmKorisnici();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void pregledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProizvodi frm = new frmProizvodi();
             frm.MdiParent = this;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();

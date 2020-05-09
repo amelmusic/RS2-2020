@@ -6,5 +6,7 @@ namespace eProdaja.Model.Requests
 {
     public class ProizvodiSearchRequest
     {
+        public int? VrstaId { get; set; }
+        public string Sadrzaj { get; set; }
     }
 }

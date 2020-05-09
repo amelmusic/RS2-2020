@@ -15,5 +15,7 @@ namespace eProdaja.Model
         public bool? Status { get; set; }
 
         public int Index { get; set; }
+
+        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
     }
 }

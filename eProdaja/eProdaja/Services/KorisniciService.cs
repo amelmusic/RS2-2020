@@ -3,6 +3,7 @@ using eProdaja.Database;
 using eProdaja.Filters;
 using eProdaja.Model;
 using eProdaja.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,9 +128,9 @@ namespace eProdaja.Services
 
         public Model.Korisnici Login(KorisniciLoginRequest request)
         {
-            var entity = _context.Korisnici.FirstOrDefault(x => x.KorisnickoIme == request.Username);
+            var entity = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == request.Username);
 
-            if(entity == null)
+            if (entity == null)
             {
                 throw new UserException("Pogrešan username ili password");
             }

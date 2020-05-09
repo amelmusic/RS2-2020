@@ -6,7 +6,9 @@ using AutoMapper;
 using eProdaja.Database;
 using eProdaja.Filters;
 using eProdaja.Model.Requests;
+using eProdaja.Security;
 using eProdaja.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,9 +41,30 @@ namespace eProdaja
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
+
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
             });
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
 
             //var connection = @"Server=db;Database=eProdaja;username=sa;password=qweasd;ConnectRetryCount=0";
             //services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(connection));
@@ -54,8 +77,7 @@ namespace eProdaja
             services.AddScoped<IVrsteProizvodaService, VrsteProizvodaService>();
 
             services.AddScoped<IService<Model.JediniceMjere, object>, BaseService<Model.JediniceMjere, object, Database.JediniceMjere>>();
-            services.AddScoped<ICRUDService<Model.Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest>
-                , BaseCRUDService<Model.Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest, Proizvodi>>();
+            services.AddScoped<IProizvodiService, ProizvodiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,7 +103,11 @@ namespace eProdaja
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+
 
             app.UseEndpoints(endpoints =>
             {

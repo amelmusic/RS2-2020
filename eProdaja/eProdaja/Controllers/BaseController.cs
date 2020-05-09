@@ -1,4 +1,5 @@
 ﻿using eProdaja.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace eProdaja.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BaseController<T, TSearch> : ControllerBase
     {
         protected IService<T, TSearch> _service;

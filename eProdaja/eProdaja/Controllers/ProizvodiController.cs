@@ -10,7 +10,10 @@ namespace eProdaja.Controllers
 {
     public class ProizvodiController : BaseCRUDController<Model.Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest>
     {
-        public ProizvodiController(ICRUDService<Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest> service) : base(service)
+        //public ProizvodiController(ICRUDService<Proizvodi, ProizvodiSearchRequest, ProizvodiInsertRequest, ProizvodUpdateRequest> service) : base(service)
+        //{
+        //}
+        public ProizvodiController(IProizvodiService service) : base(service)
         {
         }
     }

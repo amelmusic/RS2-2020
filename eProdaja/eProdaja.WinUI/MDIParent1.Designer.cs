@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noviKorisnikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,43 @@
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // korisniciToolStripMenuItem
+            // 
+            this.korisniciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem,
+            this.noviKorisnikToolStripMenuItem});
+            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.korisniciToolStripMenuItem.Text = "Korisnici";
+            // 
+            // pretragaToolStripMenuItem
+            // 
+            this.pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
+            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.pretragaToolStripMenuItem.Text = "Pretraga";
+            this.pretragaToolStripMenuItem.Click += new System.EventHandler(this.pretragaToolStripMenuItem_Click);
+            // 
+            // noviKorisnikToolStripMenuItem
+            // 
+            this.noviKorisnikToolStripMenuItem.Name = "noviKorisnikToolStripMenuItem";
+            this.noviKorisnikToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.noviKorisnikToolStripMenuItem.Text = "Novi korisnik";
+            // 
+            // proizvodiToolStripMenuItem
+            // 
+            this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pregledToolStripMenuItem});
+            this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
+            this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.proizvodiToolStripMenuItem.Text = "Proizvodi";
+            // 
+            // pregledToolStripMenuItem
+            // 
+            this.pregledToolStripMenuItem.Name = "pregledToolStripMenuItem";
+            this.pregledToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pregledToolStripMenuItem.Text = "Pregled";
+            this.pregledToolStripMenuItem.Click += new System.EventHandler(this.pregledToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -79,42 +116,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // korisniciToolStripMenuItem
-            // 
-            this.korisniciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pretragaToolStripMenuItem,
-            this.noviKorisnikToolStripMenuItem});
-            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
-            this.korisniciToolStripMenuItem.Text = "Korisnici";
-            // 
-            // pretragaToolStripMenuItem
-            // 
-            this.pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
-            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pretragaToolStripMenuItem.Text = "Pretraga";
-            this.pretragaToolStripMenuItem.Click += new System.EventHandler(this.pretragaToolStripMenuItem_Click);
-            // 
-            // noviKorisnikToolStripMenuItem
-            // 
-            this.noviKorisnikToolStripMenuItem.Name = "noviKorisnikToolStripMenuItem";
-            this.noviKorisnikToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.noviKorisnikToolStripMenuItem.Text = "Novi korisnik";
-            // 
-            // proizvodiToolStripMenuItem
-            // 
-            this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pregledToolStripMenuItem});
-            this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
-            this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
-            this.proizvodiToolStripMenuItem.Text = "Proizvodi";
-            // 
-            // pregledToolStripMenuItem
-            // 
-            this.pregledToolStripMenuItem.Name = "pregledToolStripMenuItem";
-            this.pregledToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pregledToolStripMenuItem.Text = "Pregled";
-            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,6 +128,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDIParent1";
             this.Text = "eProdaja";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
