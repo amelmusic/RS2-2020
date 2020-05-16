@@ -99,7 +99,7 @@ namespace eProdaja
                 c.RoutePrefix = "";
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
