@@ -38,6 +38,9 @@ namespace eProdaja.Mobile.Views
                         break;
                     case (int)MenuItemType.Proizvodi:
                         MenuPages.Add(id, new NavigationPage(new ProizvodiPage()));
+                        break; 
+                    case (int)MenuItemType.Narudzba:
+                        MenuPages.Add(id, new NavigationPage(new NarudzbaPage()));
                         break;
                 }
             }
