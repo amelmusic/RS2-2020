@@ -69,7 +69,7 @@ namespace eProdaja
             //var connection = @"Server=db;Database=eProdaja;username=sa;password=qweasd;ConnectRetryCount=0";
             //services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(connection));
 
-            var connection = "Data Source=.;Initial Catalog=eProdaja; Integrated Security = true";
+            var connection = Configuration.GetConnectionString("eProdaja");
             services.AddDbContext<eProdajaContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IKorisniciService, KorisniciService>();
